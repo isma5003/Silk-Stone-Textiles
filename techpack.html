@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tech pack generator · Silkstone Fashion</title>
+<meta name="description" content="Free tech pack generator for knitwear. Fill in a factory-format tech pack in place: style, flats and construction, fabric, bill of materials, graded measurements, decoration and packing. Print it or send it to Silkstone for a quote.">
+<link rel="canonical" href="https://silkstone-textile.com/techpack.html">
+<link rel="icon" href="assets/logos/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Silkstone Fashion">
+<meta property="og:title" content="Tech pack generator · Silkstone Fashion">
+<meta property="og:description" content="Free tech pack generator for knitwear. Fill in a factory-format tech pack in place: style, flats and construction, fabric, bill of materials, graded measurements, decoration and packing. Print it or send it to Silkstone for a quote.">
+<meta property="og:url" content="https://silkstone-textile.com/techpack.html">
+<meta property="og:image" content="https://silkstone-textile.com/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Silkstone Fashion: knitwear made in Egypt, with the sewing floor">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="apple-touch-icon" href="assets/logos/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Tech pack generator · Silkstone Fashion", "description": "Free tech pack generator for knitwear. Fill in a factory-format tech pack in place: style, flats and construction, fabric, bill of materials, graded measurements, decoration and packing. Print it or send it to Silkstone for a quote.", "url": "https://silkstone-textile.com/techpack.html", "isPartOf": {"@type": "WebSite", "name": "Silkstone Fashion", "url": "https://silkstone-textile.com/"}, "publisher": {"@type": "Organization", "@id": "https://silkstone-textile.com/#org", "name": "Silkstone Fashion", "url": "https://silkstone-textile.com/"}}</script>
+<link rel="preload" href="assets/fonts/boska-300.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/author-300.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/styles.css?v=30">
+<style>
+.tpdoc{background:var(--white);border:1px solid var(--line);box-shadow:var(--shadow);max-width:1000px;margin:0 auto;padding:clamp(24px,4vw,56px)}
+.tpdoc .head{display:grid;grid-template-columns:auto 1fr;gap:var(--gap);align-items:start;padding-bottom:22px;border-bottom:1px solid var(--black)}
+.tpdoc .head .brand{margin:0}
+.tpdoc .meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px 20px;font-size:12px}
+.tpdoc .meta div{min-width:0}
+.doc-label{display:block;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ash);margin-bottom:4px}
+.doc-field{width:100%;background:transparent;border:0;border-bottom:1px solid var(--line);padding:6px 0;font:inherit;font-size:15px;color:var(--black);outline:0;transition:border-color .3s}
+.doc-field:focus{border-color:var(--black);box-shadow:0 1px 0 var(--black)}
+.doc-field::placeholder{color:var(--ash-soft)}
+select.doc-field{appearance:none;-webkit-appearance:none;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23151513'/%3E%3C/svg%3E") right center no-repeat;padding-right:16px;cursor:pointer}
+textarea.doc-field{resize:vertical;min-height:64px;line-height:1.55}
+.tpsec{padding:28px 0;border-bottom:1px solid var(--line)}
+.tpsec:last-of-type{border-bottom:0}
+.tpsec h2{font-size:13px;font-family:var(--font);font-weight:500;letter-spacing:.24em;text-transform:uppercase;margin-bottom:18px;display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+.tpsec h2 small{font-family:var(--silk);font-style:italic;font-size:15px;letter-spacing:0;text-transform:none;color:var(--graphite);font-weight:400}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px 24px}
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 24px}
+@media (max-width:760px){.g3,.tpdoc .meta{grid-template-columns:repeat(2,minmax(0,1fr))}.g2{grid-template-columns:1fr}}
+.flats{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:var(--gap);align-items:start}
+.flats .flat{border:1px solid var(--line);aspect-ratio:1400/764;display:grid;place-items:center;background:var(--white);overflow:hidden}
+.flats .flat svg{width:100%;height:auto;display:block}
+.flats .flat svg path{fill:var(--black);fill-rule:evenodd}
+.flats .flat .blank{border:0;height:100%;width:100%}
+.callouts{margin:0}
+.callouts li{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start;padding:6px 0}
+.callouts li b{font-family:var(--stone);font-weight:400;font-size:12px;color:var(--ash);padding-top:8px}
+@media (max-width:760px){.flats{grid-template-columns:1fr}}
+table.doc{width:100%;border-collapse:collapse;font-size:13px}
+table.doc th{text-align:left;font-weight:400;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ash);padding:0 10px 8px 0;border-bottom:1px solid var(--black);white-space:nowrap}
+table.doc td{padding:4px 10px 4px 0;border-bottom:1px solid var(--line);vertical-align:middle}
+table.doc td .doc-field{border-bottom:0;padding:6px 0;font-size:13px}
+table.doc td.num .doc-field{text-align:right;font-variant-numeric:tabular-nums;width:60px}
+table.doc td.pom{width:32%}
+table.doc td.code{width:36px;font-family:var(--stone);font-size:12px;color:var(--ash)}
+.sizes{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px}
+.sizes label{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line-strong);padding:8px 12px;font-size:12px;letter-spacing:.08em;cursor:pointer;min-height:40px}
+.sizes input{margin:0;accent-color:var(--black)}
+#pom th:nth-child(n+3){text-align:right;padding-right:0}
+#pom td.num{padding-right:0}
+.rowadd{background:none;border:0;padding:14px 0 10px;min-height:44px;font:inherit;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ash);cursor:pointer}
+.rowadd:hover{color:var(--black)}
+.tpdoc .head{grid-template-columns:auto 1fr auto;align-items:center}
+.head-title b{display:block;font-family:var(--stone);font-weight:400;font-size:22px;letter-spacing:-.01em;line-height:1.1;margin-top:2px}
+.head-sub{display:block;font-size:13px;color:var(--ash);margin-top:4px}
+.head-tools{display:flex;gap:18px}
+.tool{background:none;border:0;padding:8px 0;font:inherit;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ash);cursor:pointer;min-height:44px;transition:color .3s}
+.tool:hover{color:var(--black)}
+.steps-wrap{display:grid;grid-template-columns:220px minmax(0,1fr);gap:var(--gap);align-items:start}
+.tpsteps{list-style:none;margin:0;padding:28px 0 0;position:sticky;top:96px}
+.tpsteps button{display:flex;align-items:center;gap:14px;width:100%;background:none;border:0;padding:11px 0;font:inherit;font-size:14px;color:var(--ash);text-align:left;cursor:pointer;transition:color .3s var(--ease)}
+.tpsteps button i{font-style:normal;font-family:var(--stone);font-size:12px;width:26px;height:26px;border:1px solid var(--line-strong);display:grid;place-items:center;flex:0 0 26px;transition:background .3s var(--ease),color .3s var(--ease),border-color .3s var(--ease)}
+.tpsteps button:hover,.tpsteps button.on{color:var(--black)}
+.tpsteps button.on i{background:var(--black);color:var(--bone);border-color:var(--black)}
+.tpsteps button.done i{border-color:var(--black)}
+.tpsteps button.done i::before{content:"✓";font-family:var(--font)}
+.tpsteps button.done i{font-size:0}.tpsteps button.done i::before{font-size:12px}
+.tpstep{display:none;border-bottom:0}
+.tpstep.on{display:block;animation:stepin .45s var(--ease)}
+@keyframes stepin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.step-note{margin:18px 0 0;font-size:14px;color:var(--graphite);max-width:60ch}
+.tp-nav{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-top:28px;padding-top:22px;border-top:1px solid var(--line)}
+.tp-nav .back{background:none;border:0;padding:8px 0;font:inherit;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ash);cursor:pointer;min-height:44px}
+.tp-nav .back:disabled{opacity:.3;cursor:default}
+.tp-nav .btn{padding:12px 22px;font-size:12px;letter-spacing:.16em}
+.tp-count{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ash)}
+.send-row{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.send-row .btn{padding:13px 22px;font-size:12px;letter-spacing:.16em}
+.send-row p{flex-basis:100%;margin:10px 0 0}
+@media (max-width:900px){.steps-wrap{grid-template-columns:1fr}.tpsteps{position:static;display:flex;overflow-x:auto;-webkit-mask-image:linear-gradient(90deg,#000 80%,transparent);mask-image:linear-gradient(90deg,#000 80%,transparent);gap:18px;padding:16px 0 4px;scrollbar-width:none;border-bottom:1px solid var(--line)}.tpsteps::-webkit-scrollbar{display:none}.tpsteps li{flex:0 0 auto}.tpsteps button{padding:8px 0;white-space:nowrap}.tpdoc .head{grid-template-columns:1fr auto}.tpdoc .head .brand{display:none}}
+@media (max-width:700px){.tp-nav{flex-wrap:wrap}.tp-nav .btn{flex-basis:100%;text-align:center}}
+@media print{
+  .nav,.menu,.skip,footer,.pagehead,.rowadd,.sizes,.no-print{display:none!important}
+  .tpstep{display:block!important;animation:none;border-bottom:1px solid #ddd;page-break-inside:avoid}
+  .steps-wrap{display:block}
+  body{background:#fff}section{padding:0}
+  .tpdoc{border:0;box-shadow:none;max-width:none;padding:0}
+  .doc-field{border-bottom:1px solid #ddd}
+  @page{size:A4;margin:14mm}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="index.html" aria-label="Silkstone home"><svg viewBox="0 0 104 62" aria-hidden="true"><path d="M44 12 A8 8 0 1 1 52 20 L52 26 L96 49 Q100 51 99 56 M52 26 L8 49 Q4 51 5 56"/></svg>SILKSTONE</a>
+  <nav class="nav-links"><a href="about.html">About</a><a href="capabilities.html">Capabilities</a><a href="products.html">Products</a><a href="quality.html">Quality</a><a href="egypt.html">Egypt</a><a href="techpack.html">Tech pack</a><a class="nav-cta" href="contact.html">Contact</a></nav>
+  <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</div></header>
+<div class="menu"><a href="index.html">Home</a><a href="about.html">About</a><a href="capabilities.html">Capabilities</a><a href="products.html">Products</a><a href="quality.html">Quality</a><a href="egypt.html">Egypt</a><a href="techpack.html">Tech pack</a><a href="contact.html">Contact</a></div>
+
+<main id="main">
+<section class="pagehead short"><div class="wrap">
+  <h1>Build a tech pack.</h1>
+  <p class="lead">The document a factory quotes from, in seven short steps. Choose a garment and the sheet fills in with our standard construction; change what is different in yours, then print it or send it to us for a quote.</p>
+</div></section>
+
+<section class="tight" style="padding-top:0"><div class="wrap">
+<form class="tpdoc" id="tp" autocomplete="off">
+  <div class="head">
+    <div class="brand"><svg viewBox="0 0 104 62" aria-hidden="true"><path d="M44 12 A8 8 0 1 1 52 20 L52 26 L96 49 Q100 51 99 56 M52 26 L8 49 Q4 51 5 56"/></svg>SILKSTONE</div>
+    <div class="head-title"><span class="doc-label">Tech pack</span><b id="headStyle">Untitled style</b><span class="head-sub" id="headSub">T-shirt · Regular · Men</span></div>
+    <div class="head-tools no-print"><button type="button" class="tool" id="btnSave">Save draft</button><button type="button" class="tool" id="btnClear">Clear</button></div>
+  </div>
+
+  <div class="steps-wrap">
+  <ol class="tpsteps no-print" role="tablist" aria-label="Tech pack sections">
+    <li><button type="button" role="tab" data-step="0" class="on"><i>1</i><span>Style</span></button></li>
+    <li><button type="button" role="tab" data-step="1"><i>2</i><span>Construction</span></button></li>
+    <li><button type="button" role="tab" data-step="2"><i>3</i><span>Fabric</span></button></li>
+    <li><button type="button" role="tab" data-step="3"><i>4</i><span>Materials</span></button></li>
+    <li><button type="button" role="tab" data-step="4"><i>5</i><span>Measurements</span></button></li>
+    <li><button type="button" role="tab" data-step="5"><i>6</i><span>Decoration and packing</span></button></li>
+    <li><button type="button" role="tab" data-step="6"><i>7</i><span>Send</span></button></li>
+  </ol>
+
+  <div class="tppanes">
+  <div class="tpsec tpstep on" data-step="0">
+    <h2>1 · Style <small>what the sheet is for</small></h2>
+    <div class="meta">
+      <div><label class="doc-label" for="styleName">Style name</label><input class="doc-field" id="styleName" placeholder="Core crew tee"></div>
+      <div><label class="doc-label" for="styleNo">Style number</label><input class="doc-field" id="styleNo" placeholder="Your reference"></div>
+      <div><label class="doc-label" for="brand">Brand</label><input class="doc-field" id="brand" placeholder="Brand or company"></div>
+      <div><label class="doc-label" for="season">Season</label><input class="doc-field" id="season" placeholder="SS27"></div>
+      <div><label class="doc-label" for="garment">Garment</label><select class="doc-field" id="garment"><option value="tshirt">T-shirt</option><option value="longsleeve">Long sleeve T-shirt</option><option value="polo">Polo shirt</option><option value="sweatshirt">Sweatshirt</option><option value="hoodie">Hoodie</option><option value="joggers">Joggers</option><option value="other">Other knitwear</option></select></div>
+      <div><label class="doc-label" for="gender">Range</label><select class="doc-field" id="gender"><option>Men</option><option>Women</option><option>Unisex</option><option>Kids</option></select></div>
+      <div><label class="doc-label" for="fit">Fit</label><select class="doc-field" id="fit"><option>Regular</option><option>Slim</option><option>Relaxed</option><option>Oversized</option></select></div>
+      <div><label class="doc-label" for="date">Date</label><input class="doc-field" id="date" readonly></div>
+    </div>
+    <p class="step-note">Choose the garment first. The flat, the bill of materials and the measurement chart fill in with our standard construction, and you change what is different in yours.</p>
+  </div>
+
+  <div class="tpsec tpstep" data-step="1">
+    <h2>2 · Flats and construction <small>front view, callouts numbered</small></h2>
+    <div class="flats">
+      <div class="flat" id="flat"></div>
+      <ol class="callouts" id="callouts"></ol>
+    </div>
+    <div style="margin-top:16px"><label class="doc-label" for="construction">Construction notes</label><textarea class="doc-field" id="construction" rows="2" placeholder="Pocket, drawcord, side splits, back neck tape, anything specific"></textarea></div>
+  </div>
+
+  <div class="tpsec tpstep" data-step="2">
+    <h2>3 · Fabric and finish</h2>
+    <div class="g3">
+      <div><label class="doc-label" for="fabric">Fabric</label><select class="doc-field" id="fabric"><option>Single jersey</option><option>Interlock</option><option>Rib</option><option>Pique</option><option>Loopback fleece</option><option>Brushed fleece</option><option>Other</option></select></div>
+      <div><label class="doc-label" for="composition">Composition</label><input class="doc-field" id="composition" placeholder="100% cotton"></div>
+      <div><label class="doc-label" for="gsm">Weight, gsm</label><input class="doc-field" id="gsm" type="number" min="100" max="600" placeholder="180"></div>
+      <div><label class="doc-label" for="finish">Finish</label><select class="doc-field" id="finish"><option>Plain</option><option>Enzyme wash</option><option>Silicone soft</option><option>Garment wash</option><option>Brushed inside</option></select></div>
+      <div><label class="doc-label" for="cert">Fibre certification</label><select class="doc-field" id="cert"><option>None required</option><option>Better Cotton</option><option>GOTS organic</option><option>OCS organic</option><option>RCS recycled</option><option>GRS recycled</option></select></div>
+      <div><label class="doc-label" for="colours">Colourways</label><input class="doc-field" id="colours" placeholder="White, Black, Grey melange"></div>
+    </div>
+  </div>
+
+  <div class="tpsec tpstep" data-step="3">
+    <h2>4 · Bill of materials <small>every component that goes into the garment</small></h2>
+    <div class="scroll"><table class="doc" id="bom"><thead><tr><th>Component</th><th>Specification</th><th>Placement</th><th>Colour or reference</th></tr></thead><tbody></tbody></table></div>
+    <button type="button" class="rowadd" id="addBom">+ Add a component</button>
+  </div>
+
+  <div class="tpsec tpstep" data-step="4">
+    <h2>5 · Measurements <small>centimetres, tolerance below</small></h2>
+    <div class="sizes" id="sizes">
+      <label><input type="checkbox" value="XS">XS</label><label><input type="checkbox" value="S" checked>S</label><label><input type="checkbox" value="M" checked>M</label><label><input type="checkbox" value="L" checked>L</label><label><input type="checkbox" value="XL" checked>XL</label><label><input type="checkbox" value="XXL">XXL</label><label><input type="checkbox" value="3XL">3XL</label>
+    </div>
+    <div class="scroll"><table class="doc" id="pom"><thead></thead><tbody></tbody></table></div>
+    <div class="g2" style="margin-top:16px"><div><label class="doc-label" for="tolerance">Tolerance</label><input class="doc-field" id="tolerance" value="± 1 cm on widths, ± 1.5 cm on lengths"></div></div>
+  </div>
+
+  <div class="tpsec tpstep" data-step="5">
+    <h2>6 · Decoration</h2>
+    <div class="g3">
+      <div><label class="doc-label" for="decoMethod">Method</label><select class="doc-field" id="decoMethod"><option>None</option><option>Screen print</option><option>Rotary print</option><option>Heat transfer</option><option>Embroidery</option><option>Print and embroidery</option></select></div>
+      <div><label class="doc-label" for="placement">Placement and size</label><input class="doc-field" id="placement" placeholder="Left chest 8 cm, centre back 28 cm"></div>
+      <div><label class="doc-label" for="artwork">Artwork</label><input class="doc-field" id="artwork" placeholder="Pantone references, files you will send"></div>
+    </div>
+    <h2 style="margin-top:34px">6 · Packing and quantity</h2>
+    <div class="g3">
+      <div><label class="doc-label" for="packing">Packing</label><select class="doc-field" id="packing"><option>Folded, poly bag, size sticker</option><option>Folded, no bag, size sticker</option><option>Hanger packed</option><option>Buyer's instruction</option></select></div>
+      <div><label class="doc-label" for="ratio">Carton ratio</label><input class="doc-field" id="ratio" placeholder="S2 M3 L3 XL2"></div>
+      <div><label class="doc-label" for="qty">Quantity per style</label><input class="doc-field" id="qty" type="number" min="0" placeholder="Minimum 20,000, trial 10,000"></div>
+      <div><label class="doc-label" for="orderType">Order type</label><select class="doc-field" id="orderType"><option>FOB, full package</option><option>CMT, cut make trim</option><option>CM, cut and make</option><option>Not sure yet</option></select></div>
+      <div><label class="doc-label" for="delivery">Needed by</label><input class="doc-field" id="delivery" placeholder="Month or date"></div>
+      <div><label class="doc-label" for="destination">Destination</label><input class="doc-field" id="destination" placeholder="Country or port"></div>
+    </div>
+  </div>
+
+  <div class="tpsec tpstep" data-step="6">
+    <h2>7 · Send <small>your details for the quotation</small></h2>
+    <div class="g3">
+      <div><label class="doc-label" for="contactName">Name <span class="req">required</span></label><input class="doc-field" id="contactName" autocomplete="name" required aria-describedby="e-contactName"><p class="err" id="e-contactName" hidden></p></div>
+      <div><label class="doc-label" for="contactEmail">Email <span class="req">required</span></label><input class="doc-field" id="contactEmail" type="email" autocomplete="email" required aria-describedby="e-contactEmail"><p class="err" id="e-contactEmail" hidden></p></div>
+      <div><label class="doc-label" for="notes">Notes</label><input class="doc-field" id="notes" placeholder="Anything else"></div>
+    </div>
+    <div class="send-row no-print">
+      <a class="btn solid" id="btnSend" href="#">Send to Silkstone for a quote</a>
+      <button class="btn quiet" type="button" id="btnPrint">Print or save as PDF</button>
+      <div class="send-status" id="tpStatus" role="status" aria-live="polite" hidden></div>
+      <p class="small">Sending delivers the whole sheet as text to info@silkstone-textile.com. Artwork can follow by email once we reply. The PDF prints all seven sections on A4.</p>
+    </div>
+  </div>
+  </div>
+  </div>
+
+  <div class="tp-nav no-print">
+    <button type="button" class="back" id="stepBack">← Back</button>
+    <span class="tp-count" id="stepCount">1 of 7</span>
+    <button type="button" class="btn solid" id="stepNext">Next: Construction →</button>
+  </div>
+</form>
+</div></section>
+
+</main>
+
+<footer><div class="wrap">
+  <div class="cols">
+    <div><div class="brand"><svg viewBox="0 0 104 62" aria-hidden="true"><path d="M44 12 A8 8 0 1 1 52 20 L52 26 L96 49 Q100 51 99 56 M52 26 L8 49 Q4 51 5 56"/></svg>SILKSTONE</div><p class="small" style="margin-top:16px">Knitwear manufacturing, Egypt. A Boldbridge Capital and Aletex Group partnership.</p></div>
+    <div><h3>Company</h3><a href="about.html">About</a><a href="capabilities.html">Capabilities</a><a href="quality.html">Quality</a><a href="traced-order.html">Every stone in place</a><a href="egypt.html">Egypt</a></div>
+    <div><h3>Work with us</h3><a href="products.html">Products</a><a href="techpack.html">Tech pack generator</a><a href="contact.html">Request a quote</a><a href="profile/Silkstone_Company_Profile_2026.pdf" download>Company profile, PDF 11 MB</a><a href="contact.html">Product catalogue, on request</a></div>
+    <div><h3>Contact</h3><a href="mailto:info@silkstone-textile.com">info@silkstone-textile.com</a><a href="contact.html">Plot 236, 6 Million Area, Southern Industrial Zone, 10th of Ramadan City, Egypt</a><a href="https://www.linkedin.com/company/silkstone-fashion/" target="_blank" rel="noopener">LinkedIn</a></div>
+  </div>
+  <div class="bottom"><span>© 2026 Silkstone Fashion</span><span><a href="legal.html#privacy">Privacy</a> · <a href="legal.html#terms">Terms</a> · <a href="legal.html#cookies">Cookies</a></span></div>
+</div></footer>
+<script src="assets/site.js?v=30"></script>
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)}, form=$('tp');
+  var SIZES=['XS','S','M','L','XL','XXL','3XL'];
+  var POM={
+    tshirt:[['A','Body length from HPS',[66,68,70,72,74,76,78]],['B','Chest, 1 cm below armhole, half',[47,49,52,55,58,61,64]],['C','Shoulder to shoulder',[42,44,46,48,50,52,54]],['D','Sleeve length',[19,20,21,22,23,24,25]],['E','Neck width, seam to seam',[16,17,18,18,19,19,20]],['F','Hem width, half',[47,49,52,55,58,61,64]]],
+    longsleeve:[['A','Body length from HPS',[66,68,70,72,74,76,78]],['B','Chest, half',[47,49,52,55,58,61,64]],['C','Shoulder to shoulder',[42,44,46,48,50,52,54]],['D','Sleeve length',[60,62,63,64,65,66,67]],['E','Neck width',[16,17,18,18,19,19,20]],['F','Cuff width, half',[8,8,9,9,10,10,11]]],
+    polo:[['A','Body length from HPS',[66,68,70,72,74,76,78]],['B','Chest, half',[47,49,52,55,58,61,64]],['C','Shoulder to shoulder',[42,44,46,48,50,52,54]],['D','Sleeve length',[20,21,22,23,24,25,26]],['E','Collar height',[7,7,7.5,7.5,8,8,8]],['F','Placket length',[15,15,16,16,17,17,18]]],
+    sweatshirt:[['A','Body length from HPS',[64,66,68,70,72,74,76]],['B','Chest, half',[50,53,56,59,62,65,68]],['C','Shoulder to shoulder',[46,48,50,52,54,56,58]],['D','Sleeve length',[60,62,63,64,65,66,67]],['E','Neck width',[17,18,18,19,19,20,20]],['F','Hem width, half',[46,49,52,55,58,61,64]],['G','Cuff rib height',[7,7,7,7,7,7,7]],['H','Hem rib height',[6,6,6,6,6,6,6]]],
+    hoodie:[['A','Body length from HPS',[66,68,70,72,74,76,78]],['B','Chest, half',[51,54,57,60,63,66,69]],['C','Shoulder to shoulder',[47,49,51,53,55,57,59]],['D','Sleeve length',[61,63,64,65,66,67,68]],['E','Hood height',[32,33,34,35,36,37,38]],['F','Hood width',[24,25,26,27,28,29,30]],['G','Pocket width at top',[30,32,34,36,38,40,42]],['H','Cuff and hem rib height',[7,7,7,7,7,7,7]]],
+    joggers:[['A','Outseam length',[98,100,102,104,106,108,110]],['B','Inseam',[72,74,76,77,78,79,80]],['C','Waist relaxed, half',[34,36,38,40,42,44,46]],['D','Hip, half',[48,50,52,54,56,58,60]],['E','Thigh, half',[29,30,31,32,33,34,35]],['F','Leg opening rib, half',[10,10,11,11,12,12,13]],['G','Front rise',[27,28,29,30,31,32,33]]],
+    other:[['A','Body length from HPS',[66,68,70,72,74,76,78]],['B','Chest, half',[47,49,52,55,58,61,64]],['C','Shoulder to shoulder',[42,44,46,48,50,52,54]],['D','Sleeve length',[19,20,21,22,23,24,25]]]
+  };
+  var BOM={
+    tshirt:[['Shell fabric','Single jersey, 180 gsm, 100% cotton','Body and sleeves','Colourway'],['Neck rib','1x1 rib, 2 cm finished','Neckband','Self colour'],['Back neck tape','Self fabric binding','Inside back neck','Self colour'],['Neck label','Woven, folded','Inside centre back neck','Buyer artwork'],['Care label','Printed satin','Inside left side seam','White'],['Thread','Core spun polyester','All seams','Match to shell']],
+    longsleeve:[['Shell fabric','Single jersey, 200 gsm, 100% cotton','Body and sleeves','Colourway'],['Neck rib','1x1 rib, 2 cm finished','Neckband','Self colour'],['Cuff rib','1x1 rib, 5 cm finished','Sleeve ends','Self colour'],['Neck label','Woven, folded','Inside centre back neck','Buyer artwork'],['Care label','Printed satin','Inside left side seam','White'],['Thread','Core spun polyester','All seams','Match to shell']],
+    polo:[['Shell fabric','Pique, 220 gsm, 100% cotton','Body and sleeves','Colourway'],['Collar and cuffs','Flat knit rib','Collar, sleeve ends','Self colour'],['Placket','Self fabric, 2 buttons','Centre front','Self colour'],['Buttons','Four hole, 18L, matt','Placket','Match to shell'],['Neck label','Woven, folded','Inside centre back neck','Buyer artwork'],['Care label','Printed satin','Inside left side seam','White']],
+    sweatshirt:[['Shell fabric','Brushed fleece, 320 gsm, 80/20 cotton polyester','Body and sleeves','Colourway'],['Rib','1x1 rib with elastane','Neck, cuffs, hem','Self colour'],['Neck tape','Herringbone tape','Inside back neck','Self colour'],['Neck label','Woven, folded','Inside centre back neck','Buyer artwork'],['Care label','Printed satin','Inside left side seam','White'],['Thread','Core spun polyester','All seams','Match to shell']],
+    hoodie:[['Shell fabric','Brushed fleece, 340 gsm, 80/20 cotton polyester','Body, sleeves, hood','Colourway'],['Hood lining','Single jersey, 180 gsm','Inside hood','Self colour'],['Rib','1x1 rib with elastane','Cuffs and hem','Self colour'],['Drawcord','Flat cotton cord, 10 mm, metal tips','Hood','Match to shell'],['Eyelets','Metal, 8 mm','Hood, two','Gunmetal'],['Neck label','Woven, folded','Inside centre back neck','Buyer artwork'],['Care label','Printed satin','Inside left side seam','White']],
+    joggers:[['Shell fabric','Brushed fleece, 320 gsm, 80/20 cotton polyester','Body','Colourway'],['Waistband rib','1x1 rib with elastane','Waist','Self colour'],['Elastic','Woven elastic, 40 mm','Inside waistband','Natural'],['Drawcord','Flat cotton cord, 10 mm, metal tips','Waist','Match to shell'],['Cuff rib','1x1 rib with elastane','Leg openings','Self colour'],['Pocket bag','Single jersey','Side pockets','Self colour'],['Care label','Printed satin','Inside back waistband','White']],
+    other:[['Shell fabric','To specify','Body','Colourway'],['Neck label','Woven, folded','Inside centre back neck','Buyer artwork'],['Care label','Printed satin','Inside left side seam','White']]
+  };
+  var CALL={
+    tshirt:['Rib neckband, 2 cm, twin needle topstitch','Shoulder seam with back neck tape','Set-in sleeve, 4-thread overlock','Sleeve hem, 2 cm coverstitch','Side seam, 4-thread overlock','Bottom hem, 2.5 cm coverstitch','Woven label at centre back neck'],
+    longsleeve:['Rib neckband, 2 cm','Shoulder seam with back neck tape','Set-in long sleeve','Rib cuff, 5 cm','Side seam, 4-thread overlock','Bottom hem, 2.5 cm coverstitch'],
+    polo:['Flat knit collar','Placket with two buttons and buttonholes','Set-in sleeve with flat knit cuff','Side seam with 5 cm vents','Bottom hem, 2.5 cm coverstitch','Woven label at centre back neck'],
+    sweatshirt:['Rib neckband with V-insert option','Shoulder seam with herringbone tape','Raglan or set-in sleeve','Rib cuffs, 7 cm','Rib hem, 6 cm','Woven label at centre back neck'],
+    hoodie:['Two-piece lined hood','Drawcord through two metal eyelets','Set-in sleeve, 4-thread overlock','Kangaroo pocket with bar tacks','Rib cuffs and hem, 7 cm','Woven label at centre back neck'],
+    joggers:['Rib waistband with covered elastic and drawcord','Side seam pockets with bar tacks','Tapered leg','Rib cuffs at leg opening','Care label inside back waistband'],
+    other:['Construction to be specified']
+  };
+  var STEPS=['Style','Construction','Fabric','Materials','Measurements','Decoration and packing','Send'];
+  var step=0, stepBtns=[].slice.call(document.querySelectorAll('.tpsteps button')), panes=[].slice.call(document.querySelectorAll('.tpstep'));
+  function goStep(n){ n=Math.max(0,Math.min(STEPS.length-1,n)); step=n; var sb=stepBtns[n]; if(sb&&sb.parentNode&&sb.closest(".tpsteps").scrollWidth>sb.closest(".tpsteps").clientWidth){ var ol=sb.closest(".tpsteps"); ol.scrollTo({left:sb.parentNode.offsetLeft-ol.offsetLeft-12,behavior:"smooth"}); }
+    panes.forEach(function(p){ p.classList.toggle('on', +p.dataset.step===n); });
+    stepBtns.forEach(function(b){ var i=+b.dataset.step; b.classList.toggle('on', i===n); b.classList.toggle('done', i<n); b.setAttribute('aria-selected', i===n?'true':'false'); });
+    $('stepBack').disabled = n===0;
+    $('stepNext').style.display = n===STEPS.length-1 ? 'none' : '';
+    $('stepNext').textContent = 'Next: '+(STEPS[n+1]||'')+' →';
+    $('stepCount').textContent = (n+1)+' of '+STEPS.length;
+    var top=form.getBoundingClientRect().top+window.scrollY-90; if(window.scrollY>top+40) window.scrollTo({top:top,behavior:'smooth'});
+    try{ history.replaceState(null,'','#step'+(n+1)); }catch(e){}
+  }
+  stepBtns.forEach(function(b){ b.addEventListener('click',function(){ goStep(+b.dataset.step); }); });
+  $('stepBack').addEventListener('click',function(){ goStep(step-1); });
+  $('stepNext').addEventListener('click',function(){ goStep(step+1); });
+  function headline(){ var g=$('garment'); $('headStyle').textContent = ($('styleName').value||'').trim() || (g.options[g.selectedIndex].text+' basic'); $('headSub').textContent = g.options[g.selectedIndex].text+' · '+$('fit').value+' · '+$('gender').value+(($('styleNo').value||'').trim()?' · '+$('styleNo').value.trim():''); }
+  form.addEventListener('input',headline); form.addEventListener('change',headline);
+  var flatSvg=null;
+  fetch('assets/draw/tshirt-flat.svg').then(function(r){return r.text()}).then(function(t){flatSvg=t;renderFlat();});
+  var sizesSel=function(){return [].slice.call(document.querySelectorAll('#sizes input:checked')).map(function(c){return c.value})};
+  var meas={};
+  function ensure(g){ if(!meas[g]) meas[g]=POM[g].map(function(r){return {code:r[0],name:r[1],vals:r[2].slice()}}); return meas[g]; }
+  function esc(s){return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;')}
+  function renderFlat(keep){ var g=$('garment').value; var f=$('flat'); if(g==='tshirt'&&flatSvg){ f.innerHTML=flatSvg; } else { f.innerHTML='<div class="blank"><span>Flat to follow<br>'+esc($('garment').options[$('garment').selectedIndex].text)+'</span></div>'; }
+    if(!keep) $('callouts').innerHTML=(CALL[g]||CALL.other).map(function(c,i){return '<li><b>'+(i+1)+'</b><input class="doc-field" aria-label="Callout '+(i+1)+'" value="'+esc(c)+'"></li>'}).join(''); }
+  function renderBom(rows){ var g=$('garment').value; rows=rows||BOM[g]||BOM.other; $('bom').querySelector('tbody').innerHTML=rows.map(function(r){return '<tr>'+r.map(function(v,k){return '<td><input class="doc-field" aria-label="'+['Component','Specification','Placement','Colour'][k]+'" value="'+esc(v)+'"></td>'}).join('')+'</tr>'}).join(''); }
+  function renderPom(){ var g=$('garment').value, rows=ensure(g), sizes=sizesSel();
+    $('pom').querySelector('thead').innerHTML='<tr><th></th><th>Point of measure</th>'+sizes.map(function(s){return '<th>'+s+'</th>'}).join('')+'</tr>';
+    $('pom').querySelector('tbody').innerHTML=rows.map(function(r,ri){return '<tr><td class="code">'+r.code+'</td><td class="pom">'+esc(r.name)+'</td>'+sizes.map(function(s){var si=SIZES.indexOf(s);return '<td class="num"><input class="doc-field" type="number" step="0.5" aria-label="'+esc(r.name)+' '+s+'" data-r="'+ri+'" data-s="'+si+'" value="'+r.vals[si]+'"></td>'}).join('')+'</tr>'}).join('');
+    $('pom').querySelectorAll('input[data-r]').forEach(function(i){ i.addEventListener('input',function(){ rows[+i.dataset.r].vals[+i.dataset.s]=i.value; }); }); }
+  function presets(){ var g=$('garment').value; if(g==='sweatshirt'||g==='hoodie'||g==='joggers'){ $('fabric').value='Brushed fleece'; $('finish').value='Brushed inside'; $('composition').placeholder='80% cotton 20% polyester'; $('gsm').placeholder='320'; } else if(g==='polo'){ $('fabric').value='Pique'; $('finish').value='Plain'; $('composition').placeholder='100% cotton'; $('gsm').placeholder='220'; } else { $('fabric').value='Single jersey'; $('finish').value='Plain'; $('composition').placeholder='100% cotton'; $('gsm').placeholder='180'; } }
+  function val(id){return ($(id).value||'').trim()}
+  function mail(){ var g=$('garment'), sizes=sizesSel(), rows=ensure(g.value);
+    var L=['Tech pack from silkstone-textile.com','','Style: '+(val('styleName')||g.options[g.selectedIndex].text)+' · '+val('fit')+' · '+val('gender'),'Style no.: '+(val('styleNo')||'-')+'  Brand: '+(val('brand')||'-')+'  Season: '+(val('season')||'-'),'',
+      '1 FLATS AND CONSTRUCTION'].concat([].slice.call(document.querySelectorAll('#callouts input')).map(function(i,k){return (k+1)+'. '+i.value})).concat([val('construction')?'Notes: '+val('construction'):'','',
+      '2 FABRIC','Fabric: '+val('fabric')+'  Composition: '+(val('composition')||'to confirm')+'  Weight: '+(val('gsm')||'to confirm')+' gsm  Finish: '+val('finish')+'  Certification: '+val('cert'),'Colourways: '+(val('colours')||'to confirm'),'',
+      '3 BILL OF MATERIALS']).concat([].slice.call($('bom').querySelectorAll('tbody tr')).map(function(tr){return [].slice.call(tr.querySelectorAll('input')).map(function(i){return i.value}).join(' | ')})).concat(['',
+      '4 MEASUREMENTS cm, sizes '+sizes.join(' / ')]).concat(rows.map(function(r){return r.code+' '+r.name+': '+sizes.map(function(s){return r.vals[SIZES.indexOf(s)]}).join(' / ')})).concat(['Tolerance: '+val('tolerance'),'',
+      '5 DECORATION','Method: '+val('decoMethod')+'  Placement: '+(val('placement')||'-')+'  Artwork: '+(val('artwork')||'-'),'',
+      '6 PACKING AND QUANTITY','Packing: '+val('packing')+'  Carton ratio: '+(val('ratio')||'-'),'Quantity: '+(val('qty')||'to confirm')+'  Order type: '+val('orderType')+'  Needed by: '+(val('delivery')||'-')+'  Destination: '+(val('destination')||'-'),'',
+      '7 CONTACT','Name: '+(val('contactName')||'-')+'  Email: '+(val('contactEmail')||'-')+'  Notes: '+(val('notes')||'-')]);
+    $('btnSend').setAttribute('href','mailto:info@silkstone-textile.com?subject='+encodeURIComponent('Tech pack for quote: '+(val('styleName')||g.options[g.selectedIndex].text))+'&body='+encodeURIComponent(L.join('\n'))); }
+  function serialize(){ var o={}; form.querySelectorAll('input[id],select[id],textarea[id]').forEach(function(e){o[e.id]=e.value}); o.sizes=sizesSel(); o.meas=meas; o.bom=[].slice.call($('bom').querySelectorAll('tbody tr')).map(function(tr){return [].slice.call(tr.querySelectorAll('input')).map(function(i){return i.value})}); o.callouts=[].slice.call(document.querySelectorAll('#callouts input')).map(function(i){return i.value}); return o; }
+  function restore(o){ Object.keys(o).forEach(function(k){var e=$(k); if(e&&['sizes','meas','bom','callouts'].indexOf(k)<0) e.value=o[k];}); if(o.meas) meas=o.meas; if(o.sizes) document.querySelectorAll('#sizes input').forEach(function(c){c.checked=o.sizes.indexOf(c.value)>=0}); renderFlat(); if(o.callouts) document.querySelectorAll('#callouts input').forEach(function(i,k){ if(o.callouts[k]!==undefined) i.value=o.callouts[k]; }); renderBom(o.bom); renderPom(); }
+  function today(){ return new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'}); }
+  $('date').value=today();
+  $('garment').addEventListener('change',function(){ presets(); renderFlat(); renderBom(); renderPom(); mail(); headline(); });
+  $('sizes').addEventListener('change',function(){ renderPom(); mail(); });
+  form.addEventListener('input',mail);
+  $('addBom').addEventListener('click',function(){ var tr=document.createElement('tr'); tr.innerHTML='<td><input class="doc-field" placeholder="Component" aria-label="Component"></td><td><input class="doc-field" placeholder="Specification" aria-label="Specification"></td><td><input class="doc-field" placeholder="Placement" aria-label="Placement"></td><td><input class="doc-field" placeholder="Colour or reference" aria-label="Colour"></td>'; $('bom').querySelector('tbody').appendChild(tr); tr.querySelector('input').focus(); });
+  $('btnPrint').addEventListener('click',function(){ window.print(); });
+  var hs=(location.hash||'').match(/step(\d)/); goStep(hs?+hs[1]-1:0); headline();
+  (function(){ var b=$('btnSend'), st=$('tpStatus');
+    var M={contactName:'Add your name so we know who to reply to.',contactEmail:'Add a work email so we can send the quote.'};
+    function chk(f){ var v=f.value.trim(), m=!v?M[f.id]:(f.type==='email'&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)?'That email looks incomplete. Check the part after the @.':''); f.classList.toggle('bad',!!m); f.setAttribute('aria-invalid',m?'true':'false'); var e=$('e-'+f.id); e.textContent=m; e.hidden=!m; return !m; }
+    ['contactName','contactEmail'].forEach(function(id){ var f=$(id); f.addEventListener('blur',function(){ if(f.value.trim()||f.classList.contains('bad')) chk(f); }); f.addEventListener('input',function(){ if(f.classList.contains('bad')) chk(f); }); });
+    function text(){ return decodeURIComponent((b.getAttribute('href').split('&body=')[1]||'')); }
+    function show(h){ st.innerHTML=h; st.hidden=false; var c=st.querySelector('[data-copy]'); if(c) c.addEventListener('click',function(){ SS.copy(text(),c); }); }
+    b.addEventListener('click',function(e){ mail(); var ok=chk($('contactName')) & chk($('contactEmail'));
+      if(!ok){ e.preventDefault(); var f=$('contactName').classList.contains('bad')?$('contactName'):$('contactEmail'); f.focus(); return; }
+      if(SS.FORM_KEY){ e.preventDefault(); b.textContent='Sending';
+        SS.submit({subject:'Tech pack for quote: '+(val('styleName')||'untitled style'),name:val('contactName'),email:val('contactEmail'),message:text()}).then(function(){ b.hidden=true; show('<strong>Received.</strong> Your tech pack is with the Silkstone team. Send artwork by reply once we are in touch.'); })
+        .catch(function(){ b.textContent='Send to Silkstone for a quote'; show('<strong>That did not go through.</strong> Nothing was lost: <button type="button" class="linkbtn" data-copy>copy the sheet</button> and email it to <a href="mailto:'+SS.INBOX+'">'+SS.INBOX+'</a>.'); });
+        return; }
+      show('Your email app should now open with the sheet filled in. <strong>Nothing opened?</strong> <button type="button" class="linkbtn" data-copy>Copy the sheet</button> and paste it into an email to <a href="mailto:'+SS.INBOX+'">'+SS.INBOX+'</a>.');
+    });
+  })();
+  $('btnSave').addEventListener('click',function(){ try{ localStorage.setItem('silkstone_tp_draft',JSON.stringify(serialize())); }catch(e){} $('btnSave').textContent='Saved'; setTimeout(function(){$('btnSave').textContent='Save draft'},1500); });
+  $('btnClear').addEventListener('click',function(){ form.reset(); meas={}; try{localStorage.removeItem('silkstone_tp_draft')}catch(e){} $('date').value=today(); presets(); renderFlat(); renderBom(); renderPom(); mail(); headline(); goStep(0); });
+  var q=new URLSearchParams(location.search).get('garment'); var draft=null; try{draft=JSON.parse(localStorage.getItem('silkstone_tp_draft')||'null')}catch(e){}
+  if(q&&POM[q]){ $('garment').value=q; presets(); renderFlat(); renderBom(); renderPom(); }
+  else if(draft){ restore(draft); }
+  else { try{ var list=JSON.parse(localStorage.getItem('silkstone_tp')||'[]'); if(list.length&&POM[list[list.length-1]]) $('garment').value=list[list.length-1]; }catch(e){} presets(); renderFlat(); renderBom(); renderPom(); }
+  mail(); headline();
+})();
+</script>
+</body>
+</html>

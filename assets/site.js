@@ -12,6 +12,9 @@ window.SS = {
      While it is empty nothing loads. Once set, a small bar asks each visitor first,
      and Google Analytics only starts after they press Allow. */
   GA_ID: '',
+  /* Product catalogue. Upload the PDF into the catalogue folder, then put its path here,
+     for example 'catalogue/Silkstone_Catalogue.pdf'. Every "coming soon" link then becomes a download. */
+  CATALOGUE: '',
   submit: function (fields) {
     var body = Object.assign({ access_key: SS.FORM_KEY, from_name: 'Silkstone website' }, fields);
     return fetch('https://api.web3forms.com/submit', { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(body) })
@@ -280,4 +283,15 @@ window.SS = {
   var c = get();
   if (c === 'yes') load();
   else if (c !== 'no') { if (document.body) ask(); else document.addEventListener('DOMContentLoaded', ask); }
+})();
+
+/* Product catalogue: once CATALOGUE is set, "coming soon" becomes a download */
+(function () {
+  var f = SS.CATALOGUE; if (!f) return;
+  var url = '/' + f.replace(/^\/+/, '');
+  document.querySelectorAll('a[href$="products.html#catalogue"]').forEach(function (a) { a.href = url; a.textContent = 'Product catalogue, PDF'; });
+  var h = document.querySelector('[data-cat="h"]'), p = document.querySelector('[data-cat="p"]'), a = document.querySelector('[data-cat="a"]');
+  if (h) h.innerHTML = 'The catalogue, <em>ready to download.</em>';
+  if (p) p.textContent = 'Every construction, specification table and photograph in one printable document, made to match this site.';
+  if (a) { a.href = url; a.querySelector('span').textContent = 'Download the catalogue'; }
 })();

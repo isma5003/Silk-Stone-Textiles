@@ -1,6 +1,6 @@
 # Silkstone Fashion — website
 
-Knitwear manufacturing in Egypt, for European and American retail. A Boldbridge Capital and Aletex Group partnership.
+Knitwear manufacturing in Egypt, for international retail. A Boldbridge Capital and Aletex Group partnership.
 
 Static site: plain HTML, one stylesheet, a few small scripts. No build step.
 

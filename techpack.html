@@ -4,24 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tech pack generator · Silkstone Fashion</title>
-<meta name="description" content="Free tech pack generator for knitwear. Fill in a factory-format tech pack in place: style, flats and construction, fabric, bill of materials, graded measurements, decoration and packing. Print it or send it to Silkstone for a quote.">
+<meta name="description" content="Free knitwear tech pack generator: style, flats, fabric, bill of materials, measurements, decoration and packing. Print it or send it for a quote.">
 <link rel="canonical" href="https://silkstone-textile.com/techpack.html">
 <link rel="icon" href="assets/logos/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Silkstone Fashion">
 <meta property="og:title" content="Tech pack generator · Silkstone Fashion">
-<meta property="og:description" content="Free tech pack generator for knitwear. Fill in a factory-format tech pack in place: style, flats and construction, fabric, bill of materials, graded measurements, decoration and packing. Print it or send it to Silkstone for a quote.">
+<meta property="og:description" content="Free knitwear tech pack generator: style, flats, fabric, bill of materials, measurements, decoration and packing. Print it or send it for a quote.">
 <meta property="og:url" content="https://silkstone-textile.com/techpack.html">
-<meta property="og:image" content="https://silkstone-textile.com/assets/og.jpg">
+<meta property="og:image" content="https://silkstone-textile.com/assets/og.jpg?v=2">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Silkstone Fashion: knitwear made in Egypt, with the sewing floor">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="apple-touch-icon" href="assets/logos/apple-touch-icon.png">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Tech pack generator · Silkstone Fashion", "description": "Free tech pack generator for knitwear. Fill in a factory-format tech pack in place: style, flats and construction, fabric, bill of materials, graded measurements, decoration and packing. Print it or send it to Silkstone for a quote.", "url": "https://silkstone-textile.com/techpack.html", "isPartOf": {"@type": "WebSite", "name": "Silkstone Fashion", "url": "https://silkstone-textile.com/"}, "publisher": {"@type": "Organization", "@id": "https://silkstone-textile.com/#org", "name": "Silkstone Fashion", "url": "https://silkstone-textile.com/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Tech pack generator · Silkstone Fashion", "description": "Free knitwear tech pack generator: style, flats, fabric, bill of materials, measurements, decoration and packing. Print it or send it for a quote.", "url": "https://silkstone-textile.com/techpack.html", "isPartOf": {"@type": "WebSite", "name": "Silkstone Fashion", "url": "https://silkstone-textile.com/"}, "publisher": {"@type": "Organization", "@id": "https://silkstone-textile.com/#org", "name": "Silkstone Fashion", "url": "https://silkstone-textile.com/"}}</script>
 <link rel="preload" href="assets/fonts/boska-300.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/author-300.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/styles.css?v=30">
+<link rel="stylesheet" href="assets/styles.css?v=31">
 <style>
 .tpdoc{background:var(--white);border:1px solid var(--line);box-shadow:var(--shadow);max-width:1000px;margin:0 auto;padding:clamp(24px,4vw,56px)}
 .tpdoc .head{display:grid;grid-template-columns:auto 1fr;gap:var(--gap);align-items:start;padding-bottom:22px;border-bottom:1px solid var(--black)}
@@ -41,11 +41,16 @@ textarea.doc-field{resize:vertical;min-height:64px;line-height:1.55}
 .g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px 24px}
 .g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 24px}
 @media (max-width:760px){.g3,.tpdoc .meta{grid-template-columns:repeat(2,minmax(0,1fr))}.g2{grid-template-columns:1fr}}
-.flats{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:var(--gap);align-items:start}
+.flats{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:var(--gap);align-items:start}
 .flats .flat{border:1px solid var(--line);aspect-ratio:1400/764;display:grid;place-items:center;background:var(--white);overflow:hidden}
 .flats .flat svg{width:100%;height:auto;display:block}
 .flats .flat svg path{fill:var(--black);fill-rule:evenodd}
 .flats .flat .blank{border:0;height:100%;width:100%}
+.flats .flat svg.line-flat{height:100%;width:100%}
+.flats .flat svg.line-flat path{fill:none;stroke:var(--black);stroke-width:1.3;stroke-linejoin:round;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.flats .flat svg.line-flat path.st{stroke-dasharray:4 4;stroke-width:1;stroke:var(--graphite)}
+.flats .flat svg.line-flat circle{fill:var(--black)}
+.flats .flat svg.line-flat text{font-size:30px;fill:var(--ash);font-family:var(--font)}
 .callouts{margin:0}
 .callouts li{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start;padding:6px 0}
 .callouts li b{font-family:var(--stone);font-weight:400;font-size:12px;color:var(--ash);padding-top:8px}
@@ -155,7 +160,7 @@ table.doc td.code{width:36px;font-family:var(--stone);font-size:12px;color:var(-
   </div>
 
   <div class="tpsec tpstep" data-step="1">
-    <h2>2 · Flats and construction <small>front view, callouts numbered</small></h2>
+    <h2>2 · Flats and construction <small>front and back, callouts numbered</small></h2>
     <div class="flats">
       <div class="flat" id="flat"></div>
       <ol class="callouts" id="callouts"></ol>
@@ -239,7 +244,7 @@ table.doc td.code{width:36px;font-family:var(--stone);font-size:12px;color:var(-
   <div class="cols">
     <div><div class="brand"><svg viewBox="0 0 104 62" aria-hidden="true"><path d="M44 12 A8 8 0 1 1 52 20 L52 26 L96 49 Q100 51 99 56 M52 26 L8 49 Q4 51 5 56"/></svg>SILKSTONE</div><p class="small" style="margin-top:16px">Knitwear manufacturing, Egypt. A Boldbridge Capital and Aletex Group partnership.</p></div>
     <div><h3>Company</h3><a href="about.html">About</a><a href="capabilities.html">Capabilities</a><a href="quality.html">Quality</a><a href="traced-order.html">Every stone in place</a><a href="egypt.html">Egypt</a></div>
-    <div><h3>Work with us</h3><a href="products.html">Products</a><a href="techpack.html">Tech pack generator</a><a href="contact.html">Request a quote</a><a href="profile/Silkstone_Company_Profile_2026.pdf" download>Company profile, PDF 11 MB</a><a href="contact.html">Product catalogue, on request</a></div>
+    <div><h3>Work with us</h3><a href="products.html">Products</a><a href="techpack.html">Tech pack generator</a><a href="contact.html">Request a quote</a><a href="profile/Silkstone_Company_Profile_2026.pdf" download>Company profile, PDF 11 MB</a><a href="products.html#catalogue">Product catalogue, coming soon</a></div>
     <div><h3>Contact</h3><a href="mailto:info@silkstone-textile.com">info@silkstone-textile.com</a><a href="contact.html">Plot 236, 6 Million Area, Southern Industrial Zone, 10th of Ramadan City, Egypt</a><a href="https://www.linkedin.com/company/silkstone-fashion/" target="_blank" rel="noopener">LinkedIn</a></div>
   </div>
   <div class="bottom"><span>© 2026 Silkstone Fashion</span><span><a href="legal.html#privacy">Privacy</a> · <a href="legal.html#terms">Terms</a> · <a href="legal.html#cookies">Cookies</a></span></div>
@@ -293,13 +298,30 @@ table.doc td.code{width:36px;font-family:var(--stone);font-size:12px;color:var(-
   $('stepNext').addEventListener('click',function(){ goStep(step+1); });
   function headline(){ var g=$('garment'); $('headStyle').textContent = ($('styleName').value||'').trim() || (g.options[g.selectedIndex].text+' basic'); $('headSub').textContent = g.options[g.selectedIndex].text+' · '+$('fit').value+' · '+$('gender').value+(($('styleNo').value||'').trim()?' · '+$('styleNo').value.trim():''); }
   form.addEventListener('input',headline); form.addEventListener('change',headline);
+
+  /* Line flats, front and back, for garments without a drawn silhouette */
+  var TEE='M150 66 Q200 96 250 66 L338 100 Q350 104 348 116 L322 196 L290 184 L290 436 Q290 444 282 444 L118 444 Q110 444 110 436 L110 184 L78 196 L52 116 Q50 104 62 100 Z';
+  var SLV='M150 70 Q200 90 250 70 L338 104 Q352 108 354 122 L380 400 Q381 410 371 412 L342 417 Q332 418 330 408 L298 212 L298 440 L102 440 L102 212 L70 408 Q68 418 58 417 L29 412 Q19 410 20 400 L46 122 Q48 108 62 104 Z';
+  var LINE={
+    longsleeve:{body:[SLV],front:['M156 80 Q200 106 244 80'],st:['M104 428 L296 428','M34 398 L66 404','M366 398 L334 404']},
+    sweatshirt:{body:[SLV],front:['M150 72 Q200 112 250 72','M156 80 Q200 106 244 80'],back:['M150 72 Q200 88 250 72'],st:['M102 412 L298 412','M22 382 L68 390','M378 382 L332 390']},
+    polo:{body:[TEE,'M150 64 L200 90 L184 118 L138 82 Z','M250 64 L200 90 L216 118 L262 82 Z'],front:['M192 92 L192 162 L208 162 L208 92'],dots:[[200,114],[200,140]],st:['M114 428 L286 428','M82 184 L110 174','M318 184 L290 174']},
+    hoodie:{body:[SLV,'M146 68 Q200 54 254 68 Q266 112 228 132 Q200 142 172 132 Q134 112 146 68 Z'],front:['M170 78 Q200 70 230 78 Q230 104 212 114 Q200 118 188 114 Q170 104 170 78 Z','M186 132 L183 192','M214 132 L217 192','M140 330 L260 330 L282 404 L118 404 Z'],st:['M104 424 L296 424','M34 396 L66 402','M366 396 L334 402']},
+    joggers:{body:['M110 60 L290 60 L298 110 L322 418 Q323 440 304 440 L240 440 L206 170 L194 170 L160 440 L96 440 Q77 440 78 418 L102 110 Z'],front:['M107 84 L293 84','M190 84 L186 128','M210 84 L214 128','M122 110 Q140 150 128 190','M278 110 Q260 150 272 190'],back:['M107 84 L293 84','M130 150 L180 150 L180 196 L130 196 Z','M270 150 L220 150 L220 196 L270 196 Z'],st:['M82 414 L160 414','M240 414 L318 414']}
+  };
+  function lineFlat(d){
+    function view(x,parts,label){ var o='<g transform="translate('+x+' 0)">'; parts.forEach(function(p){o+='<path d="'+p[0]+'"'+(p[1]?' class="st"':'')+'/>';}); if(label==='Front'&&d.dots) d.dots.forEach(function(c){o+='<circle cx="'+c[0]+'" cy="'+c[1]+'" r="3.5"/>';}); return o+'<text x="200" y="490" text-anchor="middle">'+label+'</text></g>'; }
+    var b=d.body.map(function(p){return [p]}), st=d.st.map(function(p){return [p,1]});
+    var fr=b.concat((d.front||[]).map(function(p){return [p]}),st), bk=b.concat((d.back||[]).map(function(p){return [p]}),st);
+    return '<svg class="line-flat" viewBox="-20 30 860 470" role="img" aria-label="Front and back flat">'+view(0,fr,'Front')+view(420,bk,'Back')+'</svg>';
+  }
   var flatSvg=null;
   fetch('assets/draw/tshirt-flat.svg').then(function(r){return r.text()}).then(function(t){flatSvg=t;renderFlat();});
   var sizesSel=function(){return [].slice.call(document.querySelectorAll('#sizes input:checked')).map(function(c){return c.value})};
   var meas={};
   function ensure(g){ if(!meas[g]) meas[g]=POM[g].map(function(r){return {code:r[0],name:r[1],vals:r[2].slice()}}); return meas[g]; }
   function esc(s){return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;')}
-  function renderFlat(keep){ var g=$('garment').value; var f=$('flat'); if(g==='tshirt'&&flatSvg){ f.innerHTML=flatSvg; } else { f.innerHTML='<div class="blank"><span>Flat to follow<br>'+esc($('garment').options[$('garment').selectedIndex].text)+'</span></div>'; }
+  function renderFlat(keep){ var g=$('garment').value; var f=$('flat'); if(g==='tshirt'&&flatSvg){ f.innerHTML=flatSvg; } else if(LINE[g]){ f.innerHTML=lineFlat(LINE[g]); } else { f.innerHTML='<div class="blank"><span>Attach your own flat when you send<br>'+esc($('garment').options[$('garment').selectedIndex].text)+'</span></div>'; }
     if(!keep) $('callouts').innerHTML=(CALL[g]||CALL.other).map(function(c,i){return '<li><b>'+(i+1)+'</b><input class="doc-field" aria-label="Callout '+(i+1)+'" value="'+esc(c)+'"></li>'}).join(''); }
   function renderBom(rows){ var g=$('garment').value; rows=rows||BOM[g]||BOM.other; $('bom').querySelector('tbody').innerHTML=rows.map(function(r){return '<tr>'+r.map(function(v,k){return '<td><input class="doc-field" aria-label="'+['Component','Specification','Placement','Colour'][k]+'" value="'+esc(v)+'"></td>'}).join('')+'</tr>'}).join(''); }
   function renderPom(){ var g=$('garment').value, rows=ensure(g), sizes=sizesSel();

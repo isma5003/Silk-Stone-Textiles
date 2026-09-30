@@ -157,7 +157,7 @@ h1 em,h2 em{font-size:1em}
 .head .brand{letter-spacing:.34em!important}
 .n{font-size:10pt}
 .page.dark{background:#1B1A18}
-.fig img{filter:grayscale(1) contrast(1.03);border-radius:3.5mm}
+.fig img{border-radius:3.5mm}
 .figs b{font-family:var(--stone);font-weight:300;font-size:58pt;color:var(--bone)}
 .figs i{font-size:13pt}
 .stage h3{font-size:13pt}
@@ -175,11 +175,16 @@ h1 em,h2 em{font-size:1em}
 .frames{gap:8mm 7mm;margin-top:14mm!important}.frame{padding:3.6mm 7mm 3.6mm 3.6mm}.frame .mat{width:20mm;padding:3mm}.frame b{font-size:14pt;white-space:nowrap}.frame span{font-size:8.6pt}
 .frame span{padding:0;font-size:8pt;color:var(--ash)}
 /* cover */
-.cover{background:var(--bone)}
-.cover::before{display:none}
-.cover .in{display:grid;grid-template-columns:1fr 1fr;gap:14mm;height:100%}
+.cover{background:#0E0E0D url(../assets/img/silk-still.webp) center/cover no-repeat;color:var(--bone)}
+.cover::before{display:block;background:linear-gradient(90deg,rgba(10,10,9,.72) 0%,rgba(10,10,9,.35) 50%,rgba(10,10,9,0) 80%)}
+.cover .in{display:block;height:100%}
+.cover .left{height:100%}
+.cover h1{color:var(--bone)}
+.cover h1 em{color:#D3CEC4}
+.cover .sub{color:#DAD6CE!important}
+.cover .meta{color:#B8B3A9!important}
 .cover .left{display:flex;flex-direction:column;justify-content:space-between}
-.cover h1{font-size:50pt;max-width:none;line-height:1.02}
+.cover h1{font-size:64pt;max-width:15ch;line-height:.98}
 .cover h1 em{display:block}
 .cover .sub{font-size:13pt;color:var(--graphite);margin-top:7mm;max-width:30ch}
 .cover .photo{margin:0;height:100%}
@@ -199,7 +204,6 @@ h1 em,h2 em{font-size:1em}
       </div>
       <div class="meta"><span>Company profile 2026 · A Boldbridge Capital and Aletex Group partnership</span></div>
     </div>
-    <figure class="photo"><img src="../assets/img/photo-floor-folded-1400.webp" alt="Folded and checked garments ready for packing"></figure>
   </div>
 </section>
 

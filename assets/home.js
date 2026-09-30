@@ -1,6 +1,12 @@
 /* Home: the silk strip beside the first photo, the four stones, and the dark silk band. */
 (function () {
-  var strip = document.getElementById('silkStrip'), band = document.getElementById('silkBand'), stones = document.getElementById('stones');
+  var strip = document.getElementById('silkStrip'), band = document.getElementById('silkBand'), hero = document.getElementById('silkHero'), stones = document.getElementById('stones');
+  if (hero) {
+    silk(hero, { dark: '#0B0B0A', light: '#6A6862', fold: 1.35, sheen: .26, grain: .012, angle: .3, speed: .55 });
+    var nav = document.querySelector('.nav'), sec = hero.parentNode;
+    var dark = function () { if (nav) nav.classList.toggle('on-dark', sec.getBoundingClientRect().bottom > 80); };
+    dark(); addEventListener('scroll', dark, { passive: true }); addEventListener('resize', dark);
+  }
   if (strip) silk(strip, { dark: '#6E6961', light: '#D6D2CA', fold: 3.2, sheen: .12, grain: .035, angle: 1.5, speed: .6 });
   if (band) silk(band, { dark: '#0B0B0A', light: '#55554F', fold: 1.5, sheen: .22, grain: .015, angle: .25, speed: .7 });
   if (!stones) return;

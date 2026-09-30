@@ -8,6 +8,10 @@
 window.SS = {
   INBOX: 'info@silkstone-textile.com',
   FORM_KEY: '',
+  /* Visitor counts. GA_ID is the Google Analytics 4 Measurement ID (it starts with G-).
+     While it is empty nothing loads. Once set, a small bar asks each visitor first,
+     and Google Analytics only starts after they press Allow. */
+  GA_ID: '',
   submit: function (fields) {
     var body = Object.assign({ access_key: SS.FORM_KEY, from_name: 'Silkstone website' }, fields);
     return fetch('https://api.web3forms.com/submit', { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(body) })
@@ -248,4 +252,32 @@ window.SS = {
     });
     out();
   }
+})();
+
+/* Google Analytics, only with the visitor's permission */
+(function () {
+  var id = SS.GA_ID, KEY = 'ss-analytics';
+  if (!/^G-[A-Z0-9]+$/i.test(id || '')) return;
+  function get() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+  function set(v) { try { localStorage.setItem(KEY, v); } catch (e) {} }
+  function load() {
+    if (window.gtag) return;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { dataLayer.push(arguments); };
+    gtag('js', new Date()); gtag('config', id);
+    var s = document.createElement('script'); s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + id; document.head.appendChild(s);
+  }
+  function ask() {
+    if (document.querySelector('.consent')) return;
+    var bar = document.createElement('div'); bar.className = 'consent'; bar.setAttribute('role', 'region'); bar.setAttribute('aria-label', 'Cookie choice');
+    bar.innerHTML = '<p>May we count visits with Google Analytics? It sets cookies and helps us improve the site. <a href="/legal.html#cookies">More</a></p>' +
+      '<div class="consent-actions"><button type="button" data-v="yes">Allow</button><button type="button" data-v="no">No thanks</button></div>';
+    bar.addEventListener('click', function (e) { var v = e.target.getAttribute('data-v'); if (!v) return; set(v); bar.remove(); if (v === 'yes') load(); });
+    document.body.appendChild(bar);
+  }
+  var gc = document.getElementById('ga-choice'); if (gc) gc.hidden = false;
+  SS.analyticsChoice = function () { try { localStorage.removeItem(KEY); } catch (e) {} ask(); };
+  var c = get();
+  if (c === 'yes') load();
+  else if (c !== 'no') { if (document.body) ask(); else document.addEventListener('DOMContentLoaded', ask); }
 })();

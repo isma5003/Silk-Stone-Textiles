@@ -104,7 +104,7 @@ window.SS = {
   if ('IntersectionObserver' in window && !reduce) {
     var io = new IntersectionObserver(function (es) {
       es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, { rootMargin: '0px 0px -6% 0px' });
+    }, { rootMargin: '0px 0px 12% 0px' });
     rv.forEach(function (el) { io.observe(el); });
   } else { rv.forEach(function (el) { el.classList.add('in'); }); }
 
@@ -294,4 +294,11 @@ window.SS = {
   if (h) h.innerHTML = 'The catalogue, <em>ready to download.</em>';
   if (p) p.textContent = 'Every construction, specification table and photograph in one printable document, made to match this site.';
   if (a) { a.href = url; a.querySelector('span').textContent = 'Download the catalogue'; }
+})();
+
+/* Ambient silk behind every page: loaded only after the page has finished loading */
+(function () {
+  function go() { var s = document.createElement('script'); s.src = '/assets/ambient.js?v=1'; s.async = true; document.body.appendChild(s); }
+  function later() { if ('requestIdleCallback' in window) requestIdleCallback(go, { timeout: 2500 }); else setTimeout(go, 800); }
+  if (document.readyState === 'complete') later(); else addEventListener('load', later);
 })();

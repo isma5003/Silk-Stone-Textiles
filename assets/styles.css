@@ -291,10 +291,10 @@ footer .bottom a{display:inline;padding:0}
   .motion .rv:is(.slab,.frame,.stamps,.clocks,.order-head,.dept,.contact-facts,.routemap,.rail-wall,.close-side,.partner){opacity:0;transform:translateY(18px);transition:opacity var(--t-slow) var(--ease),transform var(--t-slow) var(--ease)}
   .motion .rv.in{opacity:1;transform:none}
   /* photographs are drawn back like fabric */
-  .motion .rv .fig img,.motion .rv.fig img,.motion .doors.rv .door img{clip-path:inset(0 0 100% 0);transition:clip-path 1.2s var(--ease),transform 1.6s var(--ease),filter var(--t-slow) var(--ease)}
-  .motion .rv.in .fig img,.motion .rv.fig.in img,.motion .doors.rv.in .door img{clip-path:inset(0)}
-  .motion .doors.rv .door:nth-child(2) img{transition-delay:.12s,0s,0s}
-  .motion .doors.rv .door:nth-child(3) img{transition-delay:.24s,0s,0s}
+  .motion .rv .fig img,.motion .rv.fig img,.motion .doors.rv .door img{opacity:0;transition:opacity .45s var(--ease),transform 1.6s var(--ease),filter var(--t-slow) var(--ease)}
+  .motion .rv.in .fig img,.motion .rv.fig.in img,.motion .doors.rv.in .door img{opacity:1}
+  .motion .doors.rv .door:nth-child(2) img{transition-delay:.06s,0s,0s}
+  .motion .doors.rv .door:nth-child(3) img{transition-delay:.12s,0s,0s}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
@@ -1056,3 +1056,18 @@ body.menu-open .nav.on-dark.scrolled{background:transparent}
 .consent button[data-v="no"]{background:transparent;color:inherit}
 .consent button:focus-visible{outline:2px solid var(--black,#1B1A18);outline-offset:2px}
 button.link{background:none;border:0;border-bottom:1px solid var(--line-strong);border-radius:0;padding:0 0 3px;font:inherit;color:inherit;cursor:pointer}
+/* Four numbers set in stone: four real stones, loose on the page, no frame */
+.stone-set{margin:0;padding:4% 2% 6%}
+.stone-set img{width:100%;height:auto;display:block;filter:drop-shadow(10px 18px 18px rgba(40,36,30,.22))}
+/* Ambient silk: fixed behind all content, very faint */
+.ambient-silk{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none;opacity:0;transition:opacity 1.6s var(--ease)}
+.ambient-silk.on{opacity:.55}
+@media print{.ambient-silk{display:none}}
+/* Mood photographs that melt into the page instead of sitting in a box */
+.fig.soft-photo{border-radius:0;background:none;box-shadow:none;overflow:visible}
+.fig.soft-photo img{border-radius:0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent),linear-gradient(180deg,transparent,#000 18%,#000 82%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent),linear-gradient(180deg,transparent,#000 18%,#000 82%,transparent);mask-composite:intersect}
+.ph-split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:center}
+.ph-art{margin:0}
+@media (max-width:900px){.ph-split{grid-template-columns:1fr}.ph-art{max-width:560px}}
+@media print{.ph-art{display:none}}
+

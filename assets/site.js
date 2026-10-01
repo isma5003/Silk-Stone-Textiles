@@ -7,7 +7,7 @@
    While it is empty, forms fall back to opening the visitor's email app. */
 window.SS = {
   INBOX: 'info@silkstone-textile.com',
-  FORM_KEY: '',
+  FORM_KEY: 'c9f7df3d-debb-48e0-8315-348f1a1410e2',
   /* Visitor counts. GA_ID is the Google Analytics 4 Measurement ID (it starts with G-).
      While it is empty nothing loads. Once set, a small bar asks each visitor first,
      and Google Analytics only starts after they press Allow. */
